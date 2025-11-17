@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mulykap - Prototype</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/qrious@4.0.2/dist/qrious.min.js"></script>
+</head>
+<body>
+
+    <div class="app-container">
+
+        <!-- =================================================================
+            ÉCRAN DE CONNEXION / INSCRIPTION
+        ================================================================== -->
+        <div id="login-screen" class="screen active">
+            <div class="login-content">
+                <div class="logo-container">
+                    <!-- Note: Remplacer par le logo officiel de Mulykap -->
+                    <img src="image/logo_16-19.jpg" alt="Logo Mulykap" class="logo">
+                </div>
+                <h2>Bienvenue</h2>
+                <p>Votre voyage commence ici.</p>
+                <form id="login-form">
+                    <div class="input-group">
+                        <label for="phone">Numéro de téléphone</label>
+                        <input type="tel" id="phone" placeholder="+243 000 000 000" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="password">Mot de passe</label>
+                        <input type="password" id="password" placeholder="********" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="hometown">Ville de résidence</label>
+                        <input type="text" id="hometown" placeholder="Ex: Lubumbashi" required>
+                    </div>
+                    <button type="button" class="btn btn-primary" onclick="login()">S'inscrire / Se connecter</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- =================================================================
+            ÉCRAN D'ACCUEIL
+        ================================================================== -->
+        <div id="home-screen" class="screen">
+            <header>
+                <img src="image/logo_16-19.jpg" alt="Logo Mulykap" class="header-logo">
+                <h3>Bonjour, Voyageur !</h3>
+            </header>
+
+            <!-- Section pour la publicité -->
+            <div class="ads-slider-container">
+                <!-- Les images pour le slider sont gérées via JavaScript -->
+            </div>
+
+            <nav class="main-nav">
+                <button class="nav-button" onclick="showScreen('reservation-screen')">
+                    <span>Réserver un Billet</span>
+                </button>
+                <button class="nav-button" onclick="showScreen('schedule-screen')">
+                    <span>Voir les Horaires</span>
+                </button>
+                 <button class="nav-button">
+                    <span>Mes Billets</span>
+                </button>
+                <button class="nav-button">
+                    <span>Mon Compte</span>
+                </button>
+            </nav>
+
+            <div class="news-section">
+                <h4>Nouvelles de la compagnie</h4>
+                <div class="news-card">
+                    <h5>Nouveaux bus confort</h5>
+                    <p>Découvrez notre nouvelle flotte de bus climatisés avec Wi-Fi gratuit pour un voyage encore plus agréable.</p>
+                </div>
+                 <div class="news-card">
+                    <h5>Promotion spéciale fête</h5>
+                    <p>Bénéficiez de 20% de réduction pour tout billet acheté via l'application durant le mois de décembre.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- =================================================================
+            ÉCRAN DE RÉSERVATION
+        ================================================================== -->
+        <div id="reservation-screen" class="screen">
+            <header class="page-header">
+                <button class="back-btn" onclick="showScreen('home-screen')">&larr;</button>
+                <h3>Réserver un Billet</h3>
+            </header>
+            <div class="content">
+                <form id="reservation-form">
+                    <div class="input-group">
+                        <label for="depart">Ville de départ</label>
+                        <select id="depart">
+                            <option value="Lubumbashi">Lubumbashi</option>
+                            <option value="Kolwezi">Kolwezi</option>
+                            <option value="Likasi">Likasi</option>
+                            <option value="Fungurume">Fungurume</option>
+                        <option value="Kasumbalesa">Kasumbalesa</option> 
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="arrivee">Ville d'arrivée</label>
+                        <select id="arrivee">
+                            <option value="Kolwezi">Kolwezi</option>
+                           <option value="Likasi">Likasi</option> 
+                            <option value="Lubumbashi">Lubumbashi</option>
+                            <option value="Fungurume">Fungurume</option>
+                            <option value="Kasumbalesa">Kasumbalesa</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="date">Date du voyage</label>
+                        <input type="date" id="date" required>
+                    </div>
+                    <button type="button" class="btn btn-primary" onclick="showPaymentScreen()">Rechercher & Payer</button>
+                </form>
+            </div>
+        </div>
+        
+        <!-- =================================================================
+            ÉCRAN DES HORAIRES
+        ================================================================== -->
+        <div id="schedule-screen" class="screen">
+            <header class="page-header">
+                <button class="back-btn" onclick="showScreen('home-screen')">&larr;</button>
+                <h3>Horaires des Voyages</h3>
+            </header>
+            <div class="content" id="schedule-list">
+                <!-- Les horaires sont injectés ici par JavaScript -->
+            </div>
+        </div>
+
+        <!-- =================================================================
+            ÉCRAN DE PAIEMENT
+        ================================================================== -->
+        <div id="payment-screen" class="screen">
+            <header class="page-header">
+                 <button class="back-btn" onclick="showScreen('reservation-screen')">&larr;</button>
+                <h3>Paiement</h3>
+            </header>
+            <div class="content">
+                <div class="ticket-summary">
+                    <h4>Résumé du voyage</h4>
+                    <p id="summary-details">Lubumbashi &rarr; Kolwezi</p>
+                    <p id="summary-date">Le 20/12/2025</p>
+                    <p class="price">Prix: <strong>35,000 CDF</strong></p>
+                </div>
+
+                <h5>Choisissez votre méthode de paiement :</h5>
+                <div class="payment-methods">
+                    <!-- ADMIN: Les icônes et les noms peuvent être ajustés -->
+                    <div class="payment-option" onclick="processPayment('Airtel Money')">
+                        <img src="https://i.ibb.co/tZ4j3Zt/airtel-money.png" alt="Airtel Money">
+                        <span>Airtel Money</span>
+                    </div>
+                    <div class="payment-option" onclick="processPayment('M-Pesa')">
+                        <img src="https://i.ibb.co/k8BvWJ4/mpesa.png" alt="M-Pesa">
+                        <span>M-Pesa</span>
+                    </div>
+                    <div class="payment-option" onclick="processPayment('Afrimoney')">
+                        <img src="https://i.ibb.co/sKkL3pX/afrimoney.png" alt="Afrimoney">
+                        <span>Afrimoney</span>
+                    </div>
+                    <div class="payment-option" onclick="processPayment('PayPal')">
+                        <img src="https://i.ibb.co/qj5Vq6M/paypal.png" alt="PayPal">
+                        <span>PayPal</span>
+                    </div>
+                     <div class="payment-option" onclick="processPayment('Maxicash')">
+                        <img src="https://i.ibb.co/CbfCg9b/maxicash.png" alt="Maxicash">
+                        <span>Maxicash</span>
+                    </div>
+                     <div class="payment-option" onclick="processPayment('Compte Bancaire')">
+                        <img src="https://i.ibb.co/z5YsmVd/bank.png" alt="Compte Bancaire">
+                        <span>Virement</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- =================================================================
+            ÉCRAN DE CONFIRMATION DU TICKET
+        ================================================================== -->
+        <div id="ticket-screen" class="screen">
+            <header class="page-header">
+                <button class="back-btn" onclick="showScreen('home-screen')">&larr; Accueil</button>
+                <h3>Votre Billet</h3>
+            </header>
+            <div class="content ticket-final">
+                <div class="qr-code-container">
+                    <canvas id="qr-code"></canvas>
+                </div>
+                <h4>ID Ticket: <span id="ticket-id"></span></h4>
+                <div class="ticket-info">
+                    <p><strong>Trajet:</strong> <span id="ticket-trajet"></span></p>
+                    <p><strong>Date:</strong> <span id="ticket-date"></span></p>
+                    <p><strong>Heure de départ:</strong> 07:30</p>
+                    <p><strong>Passager:</strong> +243 XXX XXX XXX</p>
+                </div>
+                <p class="instructions">Présentez ce QR code à l'embarquement. Bon voyage !</p>
+                <button class="btn btn-secondary">Télécharger le billet</button>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
