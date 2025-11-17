@@ -3,17 +3,17 @@
     NOTE: Dans une application réelle, ces données viendraient d'une base de données.
 ================================================================== */
 
-// ADMIN: Gérer les images publicitaires ici.
+// ADMIN: Gérer les https://raw.githubusercontent.com/amalicorprdc/MulykapAppProject/refs/heads/images publicitaires ici.
 // Pour changer les publicités, modifiez simplement les liens dans ce tableau.
-const adImages = [
-    'image/tintin.jpg', // Image d'une boisson
-    'image/AmaliCorp.jpeg', 'image/service client.jpg', 'image/secu.jpg',
-    'image/bus.jpg',
-    'image/logo_16-19.jpg',
-    'image/copilot_image_1752426379085.jpeg', // Image d'un paysage congolais
-    'image/fret.jpg',  // Image d'un service de livraison
-    'image/pump_bus.jpg',
-    'image/pump_moto.jpg', 'image/entrepôt.jpg'
+const adhttps://raw.githubusercontent.com/amalicorprdc/MulykapAppProject/refs/heads/images = [
+    'https://raw.githubusercontent.com/amalicorprdc/MulykapAppProject/refs/heads/image/tintin.jpg', // https://raw.githubusercontent.com/amalicorprdc/MulykapAppProject/refs/heads/image d'une boisson
+    'https://raw.githubusercontent.com/amalicorprdc/MulykapAppProject/refs/heads/image/AmaliCorp.jpeg', 'https://raw.githubusercontent.com/amalicorprdc/MulykapAppProject/refs/heads/image/service client.jpg', 'https://raw.githubusercontent.com/amalicorprdc/MulykapAppProject/refs/heads/image/secu.jpg',
+    'https://raw.githubusercontent.com/amalicorprdc/MulykapAppProject/refs/heads/image/bus.jpg',
+    'https://raw.githubusercontent.com/amalicorprdc/MulykapAppProject/refs/heads/image/logo_16-19.jpg',
+    'https://raw.githubusercontent.com/amalicorprdc/MulykapAppProject/refs/heads/image/copilot_https://raw.githubusercontent.com/amalicorprdc/MulykapAppProject/refs/heads/image_1752426379085.jpeg', // https://raw.githubusercontent.com/amalicorprdc/MulykapAppProject/refs/heads/image d'un paysage congolais
+    'https://raw.githubusercontent.com/amalicorprdc/MulykapAppProject/refs/heads/image/fret.jpg',  // https://raw.githubusercontent.com/amalicorprdc/MulykapAppProject/refs/heads/image d'un service de livraison
+    'https://raw.githubusercontent.com/amalicorprdc/MulykapAppProject/refs/heads/image/pump_bus.jpg',
+    'https://raw.githubusercontent.com/amalicorprdc/MulykapAppProject/refs/heads/image/pump_moto.jpg', 'https://raw.githubusercontent.com/amalicorprdc/MulykapAppProject/refs/heads/image/entrepôt.jpg'
 ];
 
 // ADMIN: Gérer les horaires des voyages ici.
@@ -59,8 +59,8 @@ let currentSlideIndex = 0;
 function setupAdsSlider() {
     const sliderContainer = document.querySelector('.ads-slider-container');
     
-    // ADMIN: Les images sont chargées depuis le tableau 'adImages'
-    adImages.forEach((src, index) => {
+    // ADMIN: Les https://raw.githubusercontent.com/amalicorprdc/MulykapAppProject/refs/heads/images sont chargées depuis le tableau 'adhttps://raw.githubusercontent.com/amalicorprdc/MulykapAppProject/refs/heads/images'
+    adhttps://raw.githubusercontent.com/amalicorprdc/MulykapAppProject/refs/heads/images.forEach((src, index) => {
         const slide = document.createElement('div');
         slide.classList.add('slide');
         if (index === 0) slide.classList.add('active');
@@ -72,7 +72,7 @@ function setupAdsSlider() {
         sliderContainer.appendChild(slide);
     });
 
-    // Démarre le slider automatique (4 secondes par image)
+    // Démarre le slider automatique (4 secondes par https://raw.githubusercontent.com/amalicorprdc/MulykapAppProject/refs/heads/image)
     setInterval(nextSlide, 4000);
 }
 
