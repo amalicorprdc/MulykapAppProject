@@ -12,12 +12,12 @@ const adImages = [
     'https://raw.githubusercontent.com/amalicorprdc/MulykapAppProject/refs/heads/image/secu.jpg',
     'https://raw.githubusercontent.com/amalicorprdc/MulykapAppProject/refs/heads/image/bus.jpg',
     'https://raw.githubusercontent.com/amalicorprdc/MulykapAppProject/refs/heads/image/logo_16-19.jpg',
-    'https://raw.githubusercontent.com/amalicorprdc/MulykapAppProject/refs/heads/image/copilot_image_1752426379085.jpeg'
+    'https://raw.githubusercontent.com/amalicorprdc/MulykapAppProject/refs/heads/image/copilot_image_1752426379085.jpeg', 
     'https://raw.githubusercontent.com/amalicorprdc/MulykapAppProject/refs/heads/image/fret.jpg',
     'https://raw.githubusercontent.com/amalicorprdc/MulykapAppProject/refs/heads/image/pump_bus.jpg',
     'https://raw.githubusercontent.com/amalicorprdc/MulykapAppProject/refs/heads/image/pump_moto.jpg',
 
-'https://raw.githubusercontent.com/amalicorprdc/MulykapAppProject/refs/heads/image/entrepôt.jpg',
+'https://raw.githubusercontent.com/amalicorprdc/MulykapAppProject/refs/heads/image/entrepôt.jpg
 ];
 
 // ADMIN: Gérer les horaires des voyages ici.
