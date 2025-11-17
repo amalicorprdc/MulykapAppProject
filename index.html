@@ -38,6 +38,8 @@
                     </div>
                     <button type="button" class="btn btn-primary" onclick="login()">S'inscrire / Se connecter</button>
                 </form>
+                
+                
             </div>
         </div>
 
@@ -47,7 +49,7 @@
         <div id="home-screen" class="screen">
             <header>
                 <img src="https://raw.githubusercontent.com/amalicorprdc/MulykapAppProject/refs/heads/image/logo_16-19.jpg" alt="Logo Mulykap" class="header-logo">
-                <h3>Bonjour, Voyageur !</h3>
+                <h3 id="welcome-message">Bonjour, Voyageur !</h3>
             </header>
 
             <!-- Section pour la publicité -->
@@ -56,19 +58,20 @@
             </div>
 
             <nav class="main-nav">
-                <button class="nav-button" onclick="showScreen('reservation-screen')">
-                    <span>Réserver un Billet</span>
-                </button>
-                <button class="nav-button" onclick="showScreen('schedule-screen')">
-                    <span>Voir les Horaires</span>
-                </button>
-                 <button class="nav-button">
-                    <span>Mes Billets</span>
-                </button>
-                <button class="nav-button">
-                    <span>Mon Compte</span>
-                </button>
-            </nav>
+    <button class="nav-button" onclick="showScreen('reservation-screen')">
+        <span>Réserver un Billet</span>
+    </button>
+    <button class="nav-button" onclick="showScreen('schedule-screen')">
+        <span>Voir les Horaires</span>
+    </button>
+    <!-- Les onclick ont été ajoutés ici -->
+    <button class="nav-button" onclick="showScreen('my-tickets-screen')">
+        <span>Mes Billets</span>
+    </button>
+    <button class="nav-button" onclick="showScreen('account-screen')">
+        <span>Mon Compte</span>
+    </button>
+</nav>
 
             <div class="news-section">
                 <h4>Nouvelles de la compagnie</h4>
@@ -205,8 +208,52 @@
                 <button class="btn btn-secondary">Télécharger le billet</button>
             </div>
         </div>
-
     </div>
+    
+    <!-- =================================================================
+            NOUVEL ÉCRAN : MES BILLETS
+        ================================================================== -->
+        <div id="my-tickets-screen" class="screen">
+            <header class="page-header">
+                <button class="back-btn" onclick="showScreen('home-screen')">&larr;</button>
+                <h3>Mes Billets</h3>
+            </header>
+            <div class="content" id="ticket-list-container">
+                <!-- La liste des billets sera injectée ici par JavaScript -->
+            </div>
+        </div>
+
+        <!-- =================================================================
+            NOUVEL ÉCRAN : MON COMPTE
+        ================================================================== -->
+        <div id="account-screen" class="screen">
+            <header class="page-header">
+                <button class="back-btn" onclick="showScreen('home-screen')">&larr;</button>
+                <h3>Mon Compte</h3>
+            </header>
+            <div class="content">
+                <div class="profile-header">
+                    <img src="https://i.ibb.co/2S3kL1D/avatar-placeholder.png" alt="Avatar" class="avatar">
+                    <h4 id="account-phone">+243 ...</h4>
+                </div>
+
+                <div class="account-info">
+                    <div class="info-item">
+                        <span>Ville de résidence</span>
+                        <strong id="account-hometown">...</strong>
+                    </div>
+                     <div class="info-item">
+                        <span>Billets achetés</span>
+                        <strong>3</strong>
+                    </div>
+                </div>
+
+                <div class="account-actions">
+                    <button class="btn btn-secondary">Modifier mes informations</button>
+                    <button class="btn btn-danger" onclick="logout()">Se déconnecter</button>
+                </div>
+            </div>
+        </div>
 
     <script src="script.js"></script>
 </body>
