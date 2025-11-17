@@ -17,7 +17,7 @@ const adImages = [
     'https://raw.githubusercontent.com/amalicorprdc/MulykapAppProject/refs/heads/image/pump_bus.jpg',
     'https://raw.githubusercontent.com/amalicorprdc/MulykapAppProject/refs/heads/image/pump_moto.jpg',
 
-'https://raw.githubusercontent.com/amalicorprdc/MulykapAppProject/refs/heads/image/entrepôt.jpg'
+'https://raw.githubusercontent.com/amalicorprdc/MulykapAppProject/refs/heads/image/entrepôt.jpg',
 ];
 
 // ADMIN: Gérer les horaires des voyages ici.
