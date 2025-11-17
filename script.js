@@ -6,18 +6,17 @@
 // ADMIN: Gérer les images publicitaires ici.
 // Pour changer les publicités, modifiez simplement les liens dans ce tableau.
 const adImages = [
-    'https://raw.githubusercontent.com/amalicorprdc/MulykapAppProject/refs/heads/image/tintin.jpg',
+    'https://raw.githubusercontent.com/amalicorprdc/MulykapAppProject/refs/heads/image/tintin.jpg', // Image d'une boisson
     'https://raw.githubusercontent.com/amalicorprdc/MulykapAppProject/refs/heads/image/AmaliCorp.jpeg', 
     'https://raw.githubusercontent.com/amalicorprdc/MulykapAppProject/refs/heads/image/service client.jpg', 
     'https://raw.githubusercontent.com/amalicorprdc/MulykapAppProject/refs/heads/image/secu.jpg',
     'https://raw.githubusercontent.com/amalicorprdc/MulykapAppProject/refs/heads/image/bus.jpg',
     'https://raw.githubusercontent.com/amalicorprdc/MulykapAppProject/refs/heads/image/logo_16-19.jpg',
-    'https://raw.githubusercontent.com/amalicorprdc/MulykapAppProject/refs/heads/image/copilot_image_1752426379085.jpeg', 
-    'https://raw.githubusercontent.com/amalicorprdc/MulykapAppProject/refs/heads/image/fret.jpg',
+    'https://raw.githubusercontent.com/amalicorprdc/MulykapAppProject/refs/heads/image/copilot_image_1752426379085.jpeg', // Image d'un paysage congolais
+    'https://raw.githubusercontent.com/amalicorprdc/MulykapAppProject/refs/heads/image/fret.jpg',  // Image d'un service de livraison
     'https://raw.githubusercontent.com/amalicorprdc/MulykapAppProject/refs/heads/image/pump_bus.jpg',
-    'https://raw.githubusercontent.com/amalicorprdc/MulykapAppProject/refs/heads/image/pump_moto.jpg',
-
-'https://raw.githubusercontent.com/amalicorprdc/MulykapAppProject/refs/heads/image/entrepot.jpg
+    'https://raw.githubusercontent.com/amalicorprdc/MulykapAppProject/refs/heads/image/pump_moto.jpg', 
+    'https://raw.githubusercontent.com/amalicorprdc/MulykapAppProject/refs/heads/image/entrepot.jpg'
 ];
 
 // ADMIN: Gérer les horaires des voyages ici.
