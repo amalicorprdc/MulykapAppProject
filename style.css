@@ -2,12 +2,12 @@
     CONFIGURATION GÉNÉRALE ET VARIABLES
 ================================================================== */
 :root {
-    --primary-color: #0D47A1; /* Un bleu foncé pour la confiance */
+    --primary-color: #16508e; /* Un bleu foncé pour la confiance */
     --secondary-color: #FFC107; /* Un jaune ambré pour l'énergie */
-    --background-color: #f4f6f9;
-    --text-color: #333;
+    --background-color: #16508e;
+    --text-color: #fff;
     --light-text-color: #fff;
-    --card-bg-color: #ffffff;
+    --card-bg-color: #16508e;
     --shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
@@ -62,7 +62,7 @@ body {
     ÉCRAN DE CONNEXION
 ================================================================== */
 #login-screen {
-    background: linear-gradient(135deg, var(--primary-color), #1E88E5);
+    background: linear-gradient(135deg, var(--primary-color), #16508e);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -206,10 +206,11 @@ header {
     grid-template-columns: 1fr 1fr;
     gap: 15px;
     padding: 20px;
+    color: #16508e;
 }
 
 .nav-button {
-    background-color: var(--card-bg-color);
+    background-color: var(--light-text-color);
     border: 1px solid #eee;
     border-radius: 12px;
     padding: 20px;
@@ -246,14 +247,14 @@ header {
 .news-card p {
     margin: 0;
     font-size: 0.9rem;
-    color: #666;
+    color: #fff;
 }
 
 /* =================================================================
     ÉCRAN DE PAIEMENT
 ================================================================== */
 .ticket-summary {
-    background-color: #E3F2FD;
+    background-color: #16508e;
     padding: 20px;
     border-radius: 12px;
     margin-bottom: 25px;
@@ -342,7 +343,7 @@ header {
     ÉCRAN DES HORAIRES
 ================================================================== */
 #schedule-list .schedule-item {
-    background-color: #fff;
+    background-color: #16508e;
     padding: 15px;
     border-radius: 10px;
     margin-bottom: 15px;
@@ -355,7 +356,7 @@ header {
 }
 .schedule-item p {
     margin: 5px 0;
-    color: #555;
+    color: var(--light-text-color);
 }
 
 /* =================================================================
