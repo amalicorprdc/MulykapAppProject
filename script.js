@@ -1,158 +1,481 @@
 /* =================================================================
-    DONNÉES GÉRÉES PAR L'ADMINISTRATEUR
-    NOTE: Dans une application réelle, ces données viendraient d'une base de données.
+    CONFIGURATION GÉNÉRALE ET VARIABLES
 ================================================================== */
+:root {
+    --primary-color: #16508e; /* Un bleu foncé pour la confiance */
+    --secondary-color: #FFC107; /* Un jaune ambré pour l'énergie */
+    --background-color: #16508e;
+    --text-color: #fff;
+    --light-text-color: #fff;
+    --card-bg-color: #16508e;
+    --shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
 
-// ADMIN: Gérer les images publicitaires ici.
-// Pour changer les publicités, modifiez simplement les liens dans ce tableau.
-const adImages = [
-    'https://raw.githubusercontent.com/amalicorprdc/MulykapAppProject/refs/heads/image/tintin.jpg', // Image d'une boisson
-    'https://raw.githubusercontent.com/amalicorprdc/MulykapAppProject/refs/heads/image/AmaliCorp.jpeg', 
-    'https://raw.githubusercontent.com/amalicorprdc/MulykapAppProject/refs/heads/image/service client.jpg', 
-    'https://raw.githubusercontent.com/amalicorprdc/MulykapAppProject/refs/heads/image/secu.jpg',
-    'https://raw.githubusercontent.com/amalicorprdc/MulykapAppProject/refs/heads/image/bus.jpg',
-    'https://raw.githubusercontent.com/amalicorprdc/MulykapAppProject/refs/heads/image/logo_16-19.jpg',
-    'https://raw.githubusercontent.com/amalicorprdc/MulykapAppProject/refs/heads/image/copilot_image_1752426379085.jpeg', // Image d'un paysage congolais
-    'https://raw.githubusercontent.com/amalicorprdc/MulykapAppProject/refs/heads/image/fret.jpg',  // Image d'un service de livraison
-    'https://raw.githubusercontent.com/amalicorprdc/MulykapAppProject/refs/heads/image/pump_bus.jpg',
-    'https://raw.githubusercontent.com/amalicorprdc/MulykapAppProject/refs/heads/image/pump_moto.jpg', 
-    'https://raw.githubusercontent.com/amalicorprdc/MulykapAppProject/refs/heads/image/entrepot.jpg'
-];
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
 
-// ADMIN: Gérer les horaires des voyages ici.
-const tripSchedules = [
-    { from: 'Lubumbashi', to: 'Kolwezi', time: '07:30', bus: 'Confort Climatisé' },
-    { from: 'Lubumbashi', to: 'Likasi', time: '08:00', bus: 'Standard' },
-    { from: 'Kolwezi', to: 'Lubumbashi', time: '14:00', bus: 'VIP' },
-    { from: 'Fungurume', to: 'Lubumbashi', time: '10:00', bus: 'Confort Climatisé' },
-    { from: 'Lubumbashi', to: 'Kasumbalesa', time: '09:15', bus: 'Standard' }
-];
+/* =================================================================
+    CONTENEUR PRINCIPAL DE L'APPLICATION
+================================================================== */
+.app-container {
+    width: 100%;
+    max-width: 450px; /* Largeur type smartphone */
+    height: 100vh;
+    max-height: 950px;
+    background-color: var(--card-bg-color);
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.screen {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+    overflow-y: auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.screen.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* =================================================================
+    ÉCRAN DE CONNEXION
+================================================================== */
+#login-screen {
+    background: linear-gradient(135deg, var(--primary-color), #16508e);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--light-text-color);
+}
+
+.login-content {
+    text-align: center;
+    padding: 25px;
+}
+
+.logo-container .logo {
+    width: 300px;
+    margin-bottom: 20px;
+}
+
+.login-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 5px;
+}
+
+.login-content p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    margin-bottom: 30px;
+}
+
+/* =================================================================
+    ÉLÉMENTS COMMUNS (BOUTONS, FORMULAIRES, HEADERS)
+================================================================== */
+.input-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.input-group input, .input-group select {
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    font-size: 1rem;
+}
+
+.btn {
+    padding: 15px 20px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+.btn-primary {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(255, 193, 7, 0.4);
+}
+
+.btn-secondary {
+    background-color: var(--primary-color);
+    color: var(--light-text-color);
+}
+
+header {
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.header-logo {
+    width: 100px;
+}
+
+.page-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 0;
+}
+
+.back-btn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    margin-right: 15px;
+}
+
+.content {
+    padding: 0 10px;
+}
+
+/* =================================================================
+    ÉCRAN D'ACCUEIL
+================================================================== */
+#home-screen {
+    padding: 0;
+}
+
+.ads-slider-container {
+    width: 100%;
+    height: 220px; /* Ratio proche de 16:9 */
+    overflow: hidden;
+    position: relative;
+}
+
+.slide {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.main-nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    padding: 20px;
+    color: #16508e;
+}
+
+.nav-button {
+    background-color: var(--light-text-color);
+    border: 1px solid #eee;
+    border-radius: 12px;
+    padding: 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    box-shadow: var(--shadow);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.nav-button:hover {
+    transform: translateY(-5px);
+    background-color: var(--primary-color);
+    color: var(--light-text-color);
+}
+
+.news-section {
+    padding: 0 20px;
+}
+
+.news-card {
+    background: var(--card-bg-color);
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    border-left: 5px solid var(--secondary-color);
+}
+
+.news-card h5 {
+    margin: 0 0 5px 0;
+}
+
+.news-card p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #fff;
+}
+
+/* =================================================================
+    ÉCRAN DE PAIEMENT
+================================================================== */
+.ticket-summary {
+    background-color: #16508e;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.ticket-summary h4 {
+    margin: 0 0 10px 0;
+}
+.ticket-summary .price {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.payment-methods {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 15px;
+}
+
+.payment-option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.payment-option:hover {
+    border-color: var(--primary-color);
+    box-shadow: var(--shadow);
+    transform: translateY(-3px);
+}
+
+.payment-option img {
+    height: 40px;
+    margin-bottom: 10px;
+}
+
+.payment-option span {
+    font-weight: 500;
+}
+
+/* =================================================================
+    ÉCRAN DE CONFIRMATION & TICKET
+================================================================== */
+.ticket-final {
+    text-align: center;
+}
+
+.qr-code-container {
+    margin: 20px auto;
+    padding: 15px;
+    background: var(--card-bg-color);
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    display: inline-block;
+}
+
+#qr-code {
+    width: 180px;
+    height: 180px;
+}
+
+.ticket-info {
+    text-align: left;
+    margin: 20px 0;
+    padding: 15px;
+    border: 1px dashed var(--primary-color);
+    border-radius: 10px;
+}
+.ticket-info p {
+    margin: 8px 0;
+}
+.instructions {
+    color: #555;
+    margin: 20px 0;
+}
+
+/* =================================================================
+    ÉCRAN DES HORAIRES
+================================================================== */
+#schedule-list .schedule-item {
+    background-color: #16508e;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    box-shadow: var(--shadow);
+    border-left: 5px solid var(--primary-color);
+}
+.schedule-item h5 {
+    margin: 0 0 10px;
+    font-size: 1.1rem;
+}
+.schedule-item p {
+    margin: 5px 0;
+    color: var(--light-text-color);
+}
+
+/* =================================================================
+    STYLES POUR L'ÉCRAN MES BILLETS
+================================================================== */
+#ticket-list-container {
+    padding: 0 10px;
+}
+
+.ticket-card {
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: var(--shadow);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-left: 5px solid;
+}
+
+.ticket-card.upcoming {
+    border-left-color: #4CAF50; /* Vert pour les billets à venir */
+}
+
+.ticket-card.past {
+    border-left-color: #9E9E9E; /* Gris pour les billets passés */
+    opacity: 0.8;
+}
+
+.ticket-card-info h5 {
+    margin: 0 0 5px;
+}
+
+.ticket-card-info p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.ticket-card-action .btn-small {
+    padding: 8px 12px;
+    font-size: 0.8rem;
+    background-color: var(--primary-color);
+    color: var(--light-text-color);
+    border-radius: 6px;
+    cursor: pointer;
+    border: none;
+}
+
+.no-tickets-message {
+    text-align: center;
+    padding: 40px 20px;
+    color: #777;
+}
 
 
 /* =================================================================
-    LOGIQUE DE L'APPLICATION
+    STYLES POUR L'ÉCRAN MON COMPTE
 ================================================================== */
-
-document.addEventListener('DOMContentLoaded', () => {
-    setupAdsSlider();
-    populateSchedules();
-    
-    // Pour le prototypage, on met une date par défaut
-    const today = new Date().toISOString().split('T')[0];
-    document.getElementById('date').value = today;
-});
-
-// Gère l'affichage des différents écrans
-function showScreen(screenId) {
-    const screens = document.querySelectorAll('.screen');
-    screens.forEach(screen => {
-        screen.classList.remove('active');
-    });
-    document.getElementById(screenId).classList.add('active');
+.profile-header {
+    text-align: center;
+    margin-bottom: 30px;
 }
 
-// Fonction de "connexion"
-function login() {
-    // Dans ce prototype, on simule une connexion réussie
-    showScreen('home-screen');
+.avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 4px solid var(--secondary-color);
+    margin-bottom: 10px;
 }
 
-// Configuration du slider pour les publicités
-let currentSlideIndex = 0;
-function setupAdsSlider() {
-    const sliderContainer = document.querySelector('.ads-slider-container');
-    
-    // ADMIN: Les images sont chargées depuis le tableau 'adImages'
-    adImages.forEach((src, index) => {
-        const slide = document.createElement('div');
-        slide.classList.add('slide');
-        if (index === 0) slide.classList.add('active');
-        
-        const img = document.createElement('img');
-        img.src = src;
-        img.alt = `Publicité ${index + 1}`;
-        slide.appendChild(img);
-        sliderContainer.appendChild(slide);
-    });
-
-    // Démarre le slider automatique (4 secondes par image)
-    setInterval(nextSlide, 4000);
+.account-info {
+    margin-bottom: 30px;
 }
 
-function nextSlide() {
-    const slides = document.querySelectorAll('.slide');
-    slides[currentSlideIndex].classList.remove('active');
-    currentSlideIndex = (currentSlideIndex + 1) % slides.length;
-    slides[currentSlideIndex].classList.add('active');
+.info-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 10px;
+    border-bottom: 1px solid #eee;
 }
 
-// Affichage des horaires
-function populateSchedules() {
-    const scheduleList = document.getElementById('schedule-list');
-    scheduleList.innerHTML = ''; // Vide la liste
-    
-    // ADMIN: Les horaires sont chargés depuis le tableau 'tripSchedules'
-    tripSchedules.forEach(trip => {
-        const item = document.createElement('div');
-        item.className = 'schedule-item';
-        item.innerHTML = `
-            <h5>${trip.from} &rarr; ${trip.to}</h5>
-            <p><strong>Heure de départ:</strong> ${trip.time}</p>
-            <p><strong>Type de bus:</strong> ${trip.bus}</p>
-        `;
-        scheduleList.appendChild(item);
-    });
+.info-item span {
+    color: #fff;
 }
 
-
-// Affiche l'écran de paiement et met à jour le résumé
-function showPaymentScreen() {
-    const from = document.getElementById('depart').value;
-    const to = document.getElementById('arrivee').value;
-    const date = new Date(document.getElementById('date').value).toLocaleDateString('fr-FR');
-    
-    document.getElementById('summary-details').textContent = `${from} → ${to}`;
-    document.getElementById('summary-date').textContent = `Le ${date}`;
-    
-    showScreen('payment-screen');
+.account-actions .btn {
+    margin-bottom: 10px;
 }
 
-// Simule le processus de paiement et génère le ticket
-function processPayment(method) {
-    console.log(`Paiement initié via ${method}`);
-    
-    // Animation de chargement (simulée)
-    alert(`Veuillez suivre les instructions pour payer avec ${method}.`);
-    
-    generateTicket();
-    showScreen('ticket-screen');
+.btn-danger {
+    background-color: #D32F2F;
+    color: var(--light-text-color);
 }
 
-// Génère les informations du ticket et le QR Code
-function generateTicket() {
-    const from = document.getElementById('depart').value;
-    const to = document.getElementById('arrivee').value;
-    const date = new Date(document.getElementById('date').value).toLocaleDateString('fr-FR');
-    
-    // Génération d'un ID de ticket unique (simplifié)
-    const ticketId = `MKP-${Date.now().toString().slice(-6)}`;
-    
-    document.getElementById('ticket-id').textContent = ticketId;
-    document.getElementById('ticket-trajet').textContent = `${from} → ${to}`;
-    document.getElementById('ticket-date').textContent = date;
-    
-    // Génération du QR Code
-    const qrData = {
-        id: ticketId,
-        trajet: `${from}-${to}`,
-        date: date
-    };
-    
-    new QRious({
-        element: document.getElementById('qr-code'),
-        value: JSON.stringify(qrData),
-        size: 200,
-        foreground: '#0D47A1', // Couleur du QR Code
-        level: 'H' // Haute tolérance aux erreurs
-    });
+.btn-danger:hover {
+     background-color: #B71C1C;
+}
+
+/* =================================================================
+    RESPONSIVE DESIGN
+================================================================== */
+/* Pour les tablettes */
+@media (min-width: 600px) {
+    .app-container {
+        border-radius: 30px;
+    }
+}
+
+/* Pour les desktops */
+@media (min-width: 900px) {
+    body {
+        background: linear-gradient(135deg, #E0EAFC, #CFDEF3);
+    }
+    .app-container {
+        height: 80vh;
+        max-height: 800px;
+        margin-top: 5vh;
+    }
 }
