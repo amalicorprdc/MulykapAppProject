@@ -2,12 +2,12 @@
     CONFIGURATION GÉNÉRALE ET VARIABLES
 ================================================================== */
 :root {
-    --primary-color: #16508e; /* Un bleu foncé pour la confiance */
-    --secondary-color: #FFC107; /* Un jaune ambré pour l'énergie */
-    --background-color: #16508e;
-    --text-color: #fff;
-    --light-text-color: #fff;
-    --card-bg-color: #16508e;
+    --primary-color: #16508e; /* Votre bleu foncé, conservé */
+    --secondary-color: #16508e; /* Jaune ambré pour l'énergie */
+    --background-color: #16508e; /* Un fond gris très clair */
+    --text-color: #ffc107; /* Texte principal presque noir */
+    --light-text-color: #fff; /* Texte blanc pour les fonds sombres */
+    --card-bg-color: #16508e; /* Cartes blanches pour un bon contraste */
     --shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
