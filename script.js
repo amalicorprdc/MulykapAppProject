@@ -28,6 +28,7 @@ const userTickets = [
 
 // Données de démonstration pour le compte utilisateur
 let currentUser = {
+    name: '',
     phone: '',
     hometown: ''
 };
@@ -67,16 +68,18 @@ function showScreen(screenId) {
 // Fonction de "connexion"
 function login() {
     // On sauvegarde les infos de l'utilisateur pour les afficher plus tard
+    currentUser.name = document.getElementById('name').value;
     currentUser.phone = document.getElementById('phone').value;
     currentUser.hometown = document.getElementById('hometown').value;
 
-    if (!currentUser.phone || !currentUser.hometown) {
+    if (!currentUser.name || !currentUser.phone || !currentUser.hometown) {
         alert("Veuillez remplir tous les champs.");
         return;
     }
     
     // Personnalisation du message d'accueil et des infos du compte
-    document.getElementById('welcome-message').textContent = `Bonjour, ${currentUser.hometown} !`;
+    document.getElementById('welcome-message').textContent = `Bonjour, ${currentUser.name} !`;
+    document.getElementById('account-name').textContent = currentUser.name;
     document.getElementById('account-phone').textContent = currentUser.phone;
     document.getElementById('account-hometown').textContent = currentUser.hometown;
 
@@ -86,6 +89,7 @@ function login() {
 // Fonction de déconnexion
 function logout() {
     // On réinitialise les champs et on retourne à l'écran de connexion
+    document.getElementById('name').value = '';
     document.getElementById('phone').value = '';
     document.getElementById('password').value = '';
     document.getElementById('hometown').value = '';
